@@ -1,0 +1,19 @@
+nav{
+    padding: 80px;
+    height: 500px;
+    background-color: azure;
+}
+
+nav h1{
+    padding-top:100px;
+}
+nav h3{
+    padding-top:100px;
+}
+
+nav p{
+    margin-top:30px;
+}
+nav a{
+    margin-right: 30px;
+}

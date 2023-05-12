@@ -1,0 +1,9 @@
+.Comment{
+    margin-top:15px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.Comment span{
+    margin-left:10px;
+}

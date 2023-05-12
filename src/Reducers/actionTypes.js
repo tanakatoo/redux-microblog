@@ -1,0 +1,5 @@
+export const addPost = "addPost"
+export const deletePost = "deletePost"
+export const editPost = "editPost"
+export const addComment = "addComment"
+export const deleteComment = "deleteComment"

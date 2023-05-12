@@ -1,0 +1,26 @@
+.PostDetail{
+    margin:50px;
+}
+
+.PostDetail h1{
+    margin-bottom:30px;
+}
+.PostDetail p{
+    margin-bottom:20px;
+}
+.PostDetail-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.PostDetail button{
+    margin-left: 5px;
+}
+
+.PostDetail-comments{
+    margin:30px;
+}
+
+.PostDetail-form{
+    margin:30px;
+}
