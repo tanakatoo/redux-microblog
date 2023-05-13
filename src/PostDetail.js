@@ -4,34 +4,39 @@ import "./PostDetail.css"
 import { Button } from "reactstrap"
 import CommentForm from "./CommentForm"
 import Comment from "./Comment"
+import { useDispatch, useSelector } from "react-redux"
 
 const PostDetail = () => {
+    const dispatch = useDispatch()
     const { id } = useParams()
-    console.log(id)
+    const selectOnePost = useSelector(state => state.posts[id])
+    const selectComments = useSelector(state => state.comments)
+    console.log(selectComments)
+
     return (
         <div className="PostDetail">
-            <div className="PostDetail-title">
-                <h1>Why is the sky blue?</h1>
-                <div>
-                    <Button className="NewPost-title-right">Edit</Button>
-                    <Button className="NewPost-title-right">Delete</Button>
+            {selectOnePost ? (<>
+                <div className="PostDetail-title">
+                    <h1>{selectOnePost.title}</h1>
+                    <div>
+                        <Button className="NewPost-title-right">Edit</Button>
+                        <Button className="NewPost-title-right">Delete</Button>
+                    </div>
                 </div>
-            </div>
-            <p><i>Some descrption here</i></p>
-            <p>the body here. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores ad asperiores architecto eius debitis dicta excepturi perferendis, eos nesciunt
-                dolorum voluptates assumenda mollitia saepe, deserunt est suscipit. Sit, optio provident!
-            </p>
-            <hr></hr>
-            <h2>Comments</h2>
-            <div className="PostDetail-comments">
-                <Comment />
-                <Comment />
-                <Comment />
-            </div>
-            <div className="PostDetail-form">
-                <CommentForm />
-            </div>
+                <p><i>{selectOnePost.desc}</i></p>
+                <p>{selectOnePost.body}
+                </p>
+                <hr></hr>
+                <h2>Comments</h2>
+                <div className="PostDetail-comments">
+                    <Comment />
+                    <Comment />
+                    <Comment />
+                </div>
+                <div className="PostDetail-form">
+                    <CommentForm postid={id} />
+                </div></>)
+                : <p>No post found</p>}
         </div>
     )
 }

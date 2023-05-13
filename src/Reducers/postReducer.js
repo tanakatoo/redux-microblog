@@ -12,7 +12,7 @@ export const postReducer = (state = INITIAL_STATE, action) => {
                     body: action.body
                 }
             }
-        case removePost:
+        case deletePost:
             return state
         case editPost:
             return state

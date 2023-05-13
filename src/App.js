@@ -7,16 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const [blogs, setBlogs] = useState([])
-  const setData = (data) => {
-    const { id, title, desc, body } = data
-    setBlogs([...blogs, data])
-  }
+  const linkToHome = "/"
 
   return (
     <div className="App">
       <NavBar />
-      <MyRoutes />
+      <MyRoutes linkToHome={linkToHome} />
     </div>
   );
 }

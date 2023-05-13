@@ -5,9 +5,11 @@ import { Link } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addPost } from "./Reducers/actionTypes"
 import { v4 as uuid } from "uuid"
+import { useNavigate } from "react-router-dom"
 
-const NewPost = () => {
+const NewPost = (props) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [data, setData] = useState({ title: '', desc: '', body: '' })
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -22,6 +24,7 @@ const NewPost = () => {
             desc: data.desc,
             body: data.body
         })
+        navigate(props.link)
     }
     return (
         <div className="NewPost">
@@ -41,7 +44,7 @@ const NewPost = () => {
                 </FormGroup>
                 <FormGroup>
                     <Link to="/"><Button>Cancel</Button></Link>
-                    <Button>Save</Button>
+                    <Button >Save</Button>
                 </FormGroup>
             </Form>
         </div>

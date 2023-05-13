@@ -2,7 +2,7 @@ import React from "react"
 import { Card, CardBody, CardTitle, CardText } from "reactstrap"
 import { Link } from "react-router-dom"
 
-const PostCard = () => {
+const PostCard = ({ id, post }) => {
     return (
         <>
             <Card
@@ -11,13 +11,12 @@ const PostCard = () => {
                     width: '30rem'
                 }}
             >
-
                 <CardBody>
                     <CardTitle tag="h5">
-                        <Link to="/postid">Special Title Treatment</Link>
+                        <Link to={`/${id}`}>{post.title}</Link>
                     </CardTitle>
                     <CardText>
-                        With supporting text below as a natural lead-in to additional content.
+                        {post.desc}
                     </CardText>
 
                 </CardBody>

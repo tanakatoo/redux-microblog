@@ -1,8 +1,11 @@
 import React from "react"
 import "./Home.css"
 import PostCard from "./PostCard"
+import { useSelector } from "react-redux"
 
 const Home = () => {
+    const posts = useSelector(state => state.posts)
+
     return (
         <div className="Home">
             <p>
@@ -11,13 +14,7 @@ const Home = () => {
                 unde repellat. Sequi eligendi eius explicabo maiores suscipit repudiandae.
             </p>
             <div className="Home-cards">
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
-                <PostCard />
-
+                {Object.keys(posts).length > 0 ? Object.keys(posts).map((p, idx) => <PostCard id={p} post={posts[p]} key={p} />) : ''}
             </div>
         </div>
 
