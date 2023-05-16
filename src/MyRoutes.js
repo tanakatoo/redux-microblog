@@ -8,7 +8,7 @@ const MyRoutes = (props) => {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/:id" element={<PostDetail />} />
+            <Route path="/:id" element={<PostDetail link={props.linkToHome} />} />
             <Route path="/new" element={<NewPost link={props.linkToHome} />} />
             <Route path="*" element={<Home />} />
         </Routes>

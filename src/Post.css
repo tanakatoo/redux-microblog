@@ -1,11 +1,11 @@
-.NewPost{
+.Post{
     margin:80px;
 }
 
-.NewPost-form{
+.Post-form{
     margin-top:30px;
 }
 
-.NewPost button{
+.Post button{
     margin-right:5px;
 }

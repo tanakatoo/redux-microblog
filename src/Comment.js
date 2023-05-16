@@ -1,12 +1,22 @@
 import React from "react"
 import { Button } from "reactstrap"
 import "./Comment.css"
+import { useDispatch } from "react-redux"
+import { deleteComment } from "./Reducers/actionTypes"
+import { actionRemoveComment } from "./Reducers/actionCreator"
 
-const Comment = () => {
+const Comment = ({ postid, c }) => {
+    const dispatch = useDispatch()
+
+    const handleClick = (e) => {
+
+        dispatch(actionRemoveComment(postid, c.id))
+    }
     return (
         <div className="Comment">
-            <Button>X</Button>
-            <span>This is a comment. This blog is great. It's got no content whstasovever.</span>
+
+            <Button onClick={handleClick}>X</Button>
+            <span>{c.text}</span>
         </div>
     )
 }

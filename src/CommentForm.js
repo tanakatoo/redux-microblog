@@ -2,7 +2,9 @@ import React, { useState } from "react"
 import { Form, Label, FormGroup, Input, Button } from "reactstrap"
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
-import { addComment } from "./Reducers/actionTypes"
+
+import { actionAddComment } from "./Reducers/actionCreator"
+import { v4 as uuid } from "uuid"
 
 const CommentForm = ({ postid }) => {
     const dispatch = useDispatch()
@@ -14,11 +16,7 @@ const CommentForm = ({ postid }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch({
-            type: addComment,
-            id: postid,
-            comment: data.comment
-        })
+        dispatch(actionAddComment(postid, data.comment))
     }
     return (
         <div className="CommentForm">

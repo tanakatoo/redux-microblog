@@ -1,10 +1,23 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "./Home.css"
 import PostCard from "./PostCard"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { getAllTitles } from "./Reducers/actionCreator"
+import { actionVote } from "./Reducers/actionCreator"
 
 const Home = () => {
-    const posts = useSelector(state => state.posts)
+    const dispatch = useDispatch()
+    const titles = useSelector(state => state.titles)
+    const handleVoteUp = (id) => {
+        dispatch(actionVote("title", id, "up"))
+    }
+    const handleVoteDown = (id) => {
+        dispatch(actionVote("title", id, "down"))
+    }
+
+    useEffect(() => {
+        dispatch(getAllTitles())
+    }, [])
 
     return (
         <div className="Home">
@@ -14,10 +27,9 @@ const Home = () => {
                 unde repellat. Sequi eligendi eius explicabo maiores suscipit repudiandae.
             </p>
             <div className="Home-cards">
-                {Object.keys(posts).length > 0 ? Object.keys(posts).map((p, idx) => <PostCard id={p} post={posts[p]} key={p} />) : ''}
+                {Object.keys(titles).length > 0 ? Object.keys(titles).map((p, idx) => <PostCard handleVoteDown={handleVoteDown} handleVoteUp={handleVoteUp} title={titles[p]} key={p} />) : ''}
             </div>
         </div>
-
     )
 }
 export default Home
